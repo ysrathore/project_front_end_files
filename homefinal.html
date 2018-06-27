@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+
+@media only screen and (max-width: 800px) (min-width: 200px) {
+    body {
+        background-color: lightblue;
+    }
+}
+
+body
+{
+background-color: coral;
+
+}
+</style>
+<style>
+    .ysr
+	{
+	  
+            height: 100%;
+		    width:100%;
+            background-position: center;
+			
+			text-align: center;
+            background-color: light-georgian;			
+            backgroundColor: coral;
+			
+              			
+                    	
+	}
+	.hadoop
+	{
+	  
+            height: 150%;
+		    width: 150%;
+            background-position: center;
+			border: 5px black solid;
+			text-align: center;
+            margin-left: -60%;
+			
+              			
+                    	
+	}
+	
+	.cloud
+	{
+	  
+            height: 180%;
+		    width: 180%;
+            background-position: center;
+			border: 5px black solid;
+			text-align: center;
+            margin-left: -5%;
+			
+              			
+                    	
+	}
+	
+</style>
+
+<style>
+  .speech {border: 2px solid #DDD; width: 300px; padding: 0; margin-left: 40%}
+  .speech input {border: 1; width: 240px; display: inline-block; height: 30px;}
+  .speech img {float: right; width: 40px }
+  
+</style>
+
+
+
+
+<body>
+<div class='ysr'>
+<h1 style="color:black;">WELCOME TO WORLD OF AUTOMATION<h1>
+</div>
+<br/>
+<table cellspacing="150" align='center' >
+<tr>
+<td>
+<div class='hadoop'>
+<h1><b>HADOOP</b></h1>
+<ul align='left'>
+<li>HDFS CLUSTER</li>
+<li>SPLUNK</li>
+ <li>HIVE</li>
+</ul>
+</div>
+
+</td>
+
+<td>
+<div class='cloud'>
+<h1><b>CLOUD</b></h1>
+<ul align='left'>
+<li>SAAS</li>
+<li>PAAS</li>
+ <li>STAAS</li>
+
+</ul>
+</div>
+</td></tr>
+</table>
+
+<form id="labnol" method="get" action="nextpage.py" align="centre">
+  <div class="speech">
+    <input type="text" name="q" id="transcript" placeholder="Speak" />
+    <button onclick="speechrec()" src="image" alt="Me" >Me</button>
+  </div>
+</form>
+
+<!-- HTML5 Speech Recognition API -->
+<script>
+  function speechrec() {
+    if (window.hasOwnProperty('webkitSpeechRecognition')) {
+      var recognition = new webkitSpeechRecognition();
+      recognition.continuous = false;
+      recognition.interimResults = false;
+      recognition.lang = "en-US";
+      recognition.start();
+      recognition.onresult = function(e) {
+        document.getElementById('transcript').value = e.results[0][0].transcript;
+        recognition.stop();
+        document.getElementById('labnol').submit();
+      };
+      recognition.onerror = function(e) {
+        recognition.stop();
+      }
+    }
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

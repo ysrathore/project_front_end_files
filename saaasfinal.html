@@ -1,0 +1,100 @@
+<html>
+<title>
+SAAS
+</title>
+<style>
+    .bg
+        {
+        background-image: url("DSC_0182.JPG");
+            background-repeat: no-repeat;
+            background-size:cover;
+            height: 50%;
+                    width:50%;
+            background-position: center;
+                        border: 5px green solid;
+                        text-align: center;
+                        align: center;
+                        margin-left: 25%;
+            margin-top: 12%;
+
+
+        }
+        body
+        {
+            height: 100%;
+            margin: 0;
+			background-color: coral;
+        }
+
+
+
+        </style>
+<style>
+  .speech {border: 2px solid #DDD; width: 300px; padding: 0; margin-left: 35%}
+  .speech input {border: 1; width: 240px; display: inline-block; height: 30px;}
+  .speech img {float: right; width: 40px }
+</style>
+<style>
+
+
+@media only screen and (max-width: 800px)  {
+    body {
+        background-color: lightblue;
+    }
+}
+</style>
+<body>
+<form action='cgi-bin/saas.py'>
+<div class='bg' text-align='center'>
+<h1>       Software As A Service</h1>
+<table >
+<tr>
+<td>Choose Your Software:</td>
+<td>
+<select name='soft'>
+<option>firefox</option>
+<option>vlc</option>
+<option>gedit</option>
+</td>
+<tr>
+<td><input type='submit'></td>
+</tr>
+
+</select>
+
+</tr>
+
+</table>
+</div>
+</form>
+<form id="labnol" method="get" action="nextpage.py">
+  <div class="speech">
+    <input type="text" name="q" id="transcript" placeholder="Speak" />
+    <button onclick="speechrec()" src="image" alt="Me" >Me</button>
+  </div>
+</form>
+
+<!-- HTML5 Speech Recognition API -->
+<script>
+  function speechrec() {
+    if (window.hasOwnProperty('webkitSpeechRecognition')) {
+      var recognition = new webkitSpeechRecognition();
+      recognition.continuous = false;
+      recognition.interimResults = false;
+      recognition.lang = "en-US";
+      recognition.start();
+      recognition.onresult = function(e) {
+        document.getElementById('transcript').value = e.results[0][0].transcript;
+        recognition.stop();
+ document.getElementById('labnol').submit();
+      };
+      recognition.onerror = function(e) {
+        recognition.stop();
+      }
+    }
+  }
+</script>
+</body>
+
+</html>
+
